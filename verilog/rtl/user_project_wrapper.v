@@ -60,6 +60,53 @@ module user_project_wrapper #(
     input   user_clock2
 );
 
+    wire [`MPRJ_IO_PADS-1:0] io_in;
+    wire [`MPRJ_IO_PADS-1:0] io_out;
+    wire [`MPRJ_IO_PADS-1:0] io_oeb;
+
+  // GPIO output enable (0 = output, 1 = input)
+    assign io_oeb[15] = vssd1;    // CHARGEPUMP
+    assign io_oeb[25] = vccd1;    // analog_cmp1
+    assign io_oeb[27] = vssd1;    // analog_out1
+    assign io_oeb[26] = vccd1;    // analog_cmp2
+    assign io_oeb[28] = vssd1;    // analog_out2
+    assign io_oeb[23] = vssd1;    // PHASE_A1
+    assign io_oeb[19] = vssd1;    // PHASE_A2
+    assign io_oeb[16] = vssd1;    // PHASE_B1
+    assign io_oeb[20] = vssd1;    // PHASE_B2
+    assign io_oeb[21] = vssd1;    // PHASE_A1_H
+    assign io_oeb[18] = vssd1;    // PHASE_A2_H
+    assign io_oeb[14] = vssd1;    // PHASE_B1_H
+    assign io_oeb[17] = vssd1;    // PHASE_B2_H
+    assign io_oeb[18] = vccd1;    // ENC_B
+    assign io_oeb[19] = vccd1;    // ENC_A
+    assign io_oeb[12] = vssd1;    // BUFFER_DTR
+    assign io_oeb[24] = vssd1;    // MOVE_DONE
+    assign io_oeb[29] = vccd1;    // HALT
+    assign io_oeb[10] = vccd1;    // SCK
+    assign io_oeb[9] = vccd1;     // CS
+    assign io_oeb[8] = vccd1;     // COPI
+    assign io_oeb[11] = vssd1;    // CIPO
+    assign io_oeb[30] = vssd1;    // STEPOUTPUT
+    assign io_oeb[31] = vssd1;    // DIROUTPUT
+    assign io_oeb[32] = vccd1;    // STEPINPUT
+    assign io_oeb[33] = vccd1;    // DIRINPUT
+    // unused
+    assign io_oeb[0] = vccd1;    // JTAG I/O
+    assign io_oeb[1] = vccd1;    // SDO
+    assign io_oeb[2] = vccd1;    // SDI
+    assign io_oeb[3] = vccd1;    // CSB
+    assign io_oeb[4] = vccd1;    // SCK
+    assign io_oeb[5] = vccd1;    // Rx
+    assign io_oeb[6] = vccd1;    // Tx
+    assign io_oeb[7] = vccd1;    // IRQ
+    assign io_oeb[13] = vccd1;
+    assign io_oeb[22] = vccd1;
+    assign io_oeb[34] = vccd1;
+    assign io_oeb[35] = vccd1;
+    assign io_oeb[36] = vccd1;
+    assign io_oeb[37] = vccd1;
+
     /*--------------------------------------*/
     /* User project is instantiated  here   */
     /*--------------------------------------*/
