@@ -178,7 +178,8 @@ module rapcores #(
         .DIROUTPUT(io_out[31]),
         .STEPINPUT(io_in[32]),
         .DIRINPUT(io_in[33]),
-        .ENINPUT(enable)
+        .ENINPUT(la_data_in[64]),
+        .ENABLE_OEB(la_oen[64])
     );
 
 endmodule
